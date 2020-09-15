@@ -1,4 +1,4 @@
-const app = require("express");
+const express = require("express");
 const burger = require("../models/burger");
 
 var router = express.Router();
@@ -6,7 +6,7 @@ var router = express.Router();
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
   burger.all(function(data) {
-    var hbsObject = {
+    let hbsObject = {
       burger: data
     };
     console.log(hbsObject);
@@ -15,14 +15,14 @@ router.get("/", function(req, res) {
 });
 
 router.post("/api/burgers", function(req, res) {
-  burger.create(["name", "sleepy"], [req.body.name, req.body.devoured], function(result) {
+  burger.create(["burger_name", "devoured"], [req.body.name, req.body.devoured], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });
 
 router.put("/api/burgers/:id", function(req, res) {
-  var condition = "id = " + req.params.id;
+  let condition = "id = " + req.params.id;
 
   console.log("condition", condition);
 
