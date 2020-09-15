@@ -35,7 +35,7 @@ function printQuestionMarks(num) {
 
 const orm = {
     selectAll: function(table, cb) {
-        const queryString = "SELECT * FROM" + table;
+        const queryString = "SELECT * FROM " + table;
         connection.query(queryString, function (err, data) {
             if (err) {
                 throw err;
@@ -44,7 +44,7 @@ const orm = {
         });
     },
     insertOne: function(table, cols, vals, cb) {
-        let queryString = "INSERT INTO" + table;
+        let queryString = "INSERT INTO " + table;
 
         queryString += " (";
         queryString += cols.toString();
